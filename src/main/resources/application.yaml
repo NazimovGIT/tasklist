@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}?currentSchema=${POSTGRES_SCHEMA}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always                            #миграция при старте
+      continue-on-error: false
+#      data-locations: classpath:demo_data.sql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+security:
+  jwt:
+    secret: c3RyaGRyaHNleTY0amZnZUZndHJoeWhGR2c0d3RyaG5kcnlqcw==
+    access: 360000      # 1 hour
+    refresh: 2592000000 # 30 days
